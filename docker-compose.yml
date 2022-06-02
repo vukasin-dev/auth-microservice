@@ -1,0 +1,18 @@
+version: "3"
+services:
+  auth-service-nodejs:
+    container_name: auth-service
+    image: auth-service
+    restart: always
+    build: .
+    ports:
+      - "49162:8080"
+    links:
+      - mongo
+  mongo:   
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - '27027:27017'
