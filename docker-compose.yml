@@ -5,6 +5,8 @@ services:
     image: auth-service
     restart: always
     build: .
+    env_file:
+      - .env
     ports:
       - "49162:8080"
     links:
