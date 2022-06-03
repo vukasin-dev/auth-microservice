@@ -93,7 +93,7 @@ app.post("/login", async (req, res) => {
 });
 
 app.get("/verify", authMiddleware, async (req, res) => {
-  res.json({ verified: true });
+  res.json({ id: req.userId });
 });
 
 app.listen(port, () => {
